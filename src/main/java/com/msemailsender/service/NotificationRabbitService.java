@@ -15,7 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class NotificationRabbitService {
 
     private final SenderFactory senderFactory;
-
+//otp
+//
     @Transactional
     public void createNotification(final NotificationCreateRequest event) {
         validateRequest(event);
