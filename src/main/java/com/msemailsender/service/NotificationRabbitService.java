@@ -15,8 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class NotificationRabbitService {
 
     private final SenderFactory senderFactory;
-//otp
-//
+
     @Transactional
     public void createNotification(final NotificationCreateRequest event) {
         validateRequest(event);
@@ -31,9 +30,9 @@ public class NotificationRabbitService {
                     throw new IllegalArgumentException("Email cannot be null for EMAIL channel");
                 }
             }
-            case TELEGRAM -> {
-                if (event.getTelegramUsername() == null) {
-                    throw new IllegalArgumentException("Telegram username cannot be null for TELEGRAM channel");
+            case SMS -> {
+                if (event.getPhoneNumber() == null) {
+                    throw new IllegalArgumentException("SMS cannot be null for SMS channel");
                 }
             }
             default ->  throw new IllegalArgumentException("Unsupported channel type: " + event.getChannelType());

@@ -18,6 +18,6 @@ public class NotificationCreateRequest {
 
     private ChannelType channelType;
     private String email;
-    private String telegramUsername;
+    private String phoneNumber;
     private String otp;
 }
